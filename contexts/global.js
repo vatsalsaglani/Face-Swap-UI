@@ -5,8 +5,9 @@ const GlobalContext = createContext();
 export const GlobalContextProvider = ({ children }) => {
   const [sourceImage, setSourceImage] = useState(null);
   const [targetImage, setTargetImage] = useState(null);
-  const [openImageGridModal, setOpenImageGridModal] = useState(null);
+  const [openImageGridModal, setOpenImageGridModal] = useState(false);
   const [isDefault, setIsDefault] = useState(null);
+  const [openCaptureModal, setOpenCaptureModal] = useState(null);
 
   return (
     <GlobalContext.Provider
@@ -19,6 +20,8 @@ export const GlobalContextProvider = ({ children }) => {
         setOpenImageGridModal,
         isDefault,
         setIsDefault,
+        openCaptureMode,
+        setOpenCaptureModal,
       }}
     >
       {children}
