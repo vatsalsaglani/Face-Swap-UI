@@ -8,7 +8,10 @@ export const GlobalContextProvider = ({ children }) => {
   const [openImageGridModal, setOpenImageGridModal] = useState(false);
   const [isDefault, setIsDefault] = useState(null);
   const [openCaptureModal, setOpenCaptureModal] = useState(null);
-
+  const [openSourceCaptureModal, setOpenSourceCaptureModal] = useState(null);
+  const [openTargetCaptureModal, setOpenTargetCaptureModal] = useState(null);
+  const [swappedImage, setSwappedImage] = useState(null);
+  const [doingSwap, setDoingSwap] = useState(false);
   return (
     <GlobalContext.Provider
       value={{
@@ -20,8 +23,16 @@ export const GlobalContextProvider = ({ children }) => {
         setOpenImageGridModal,
         isDefault,
         setIsDefault,
-        openCaptureMode,
+        openCaptureModal,
         setOpenCaptureModal,
+        openSourceCaptureModal,
+        setOpenSourceCaptureModal,
+        openTargetCaptureModal,
+        setOpenTargetCaptureModal,
+        swappedImage,
+        setSwappedImage,
+        doingSwap,
+        setDoingSwap,
       }}
     >
       {children}
