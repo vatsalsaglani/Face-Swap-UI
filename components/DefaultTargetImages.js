@@ -15,6 +15,7 @@ import {
   ModalBody,
   ModalCloseButton,
   Button,
+  useColorMode,
 } from "@chakra-ui/react";
 
 const PhotoGridModal = () => {
@@ -24,6 +25,17 @@ const PhotoGridModal = () => {
     targetImage,
     setIsDefault,
   } = useContext(GlobalContext);
+
+  const { colorMode } = useColorMode();
+
+  const fs_gradient = {
+    dark: [
+      "linear(to-tr, teal.300,yellow.400)",
+      "linear(to-t, blue.200, teal.500)",
+      "linear(to-b, orange.100, purple.300)",
+    ],
+    light: "linear(to-l, #7928CA,#FF0080)",
+  };
 
   const closeModal = () => {
     if (targetImage) {
@@ -51,10 +63,18 @@ const PhotoGridModal = () => {
           <ModalFooter>
             <Button
               onClick={closeModal}
-              colorScheme="facebook"
-              bgGradient="linear(to right, #224d8f,#d55191)"
+              // colorScheme="facebook"
+              variant="solid"
+              bgGradient={fs_gradient[colorMode]}
+              _hover={{
+                bgGradient:
+                  colorMode === "light"
+                    ? fs_gradient["dark"]
+                    : fs_gradient["light"],
+                color: colorMode === "light" ? "gray.100" : "gray.900",
+              }}
             >
-              Submit
+              SUBMIT
             </Button>
           </ModalFooter>
         </ModalContent>
