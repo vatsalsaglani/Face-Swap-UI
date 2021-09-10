@@ -76,8 +76,13 @@ const ImageGrid = ({ props }) => {
   const onClickImage = (name) => {
     setChangeCount(changeCount + 1);
     console.log(name);
+    setTargetImage(
+      defaultPhotos.filter((item) => item.name === name)[0]["src"]
+    );
     // setSelectedImage(name);
-    setTargetImage(name);
+    // setTargetImage(
+    //   `https://vs-bucket-allthings.s3.us-east-2.amazonaws.com/${name}.png`
+    // );
     if (
       defaultImageStates.some((photo) => {
         return photo.isSelected;
