@@ -11,7 +11,8 @@ import {
 
 import GlobalContext from "../contexts/global";
 
-import { defaultPhotos } from "../pages/photos";
+// import { defaultPhotos } from "../pages/photos";
+import { defaultPhotos } from "./Photos";
 
 export const ImageView = ({
   imgSrc,

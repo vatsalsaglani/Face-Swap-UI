@@ -7,7 +7,8 @@ import { useRouter } from "next/router";
 import GlobalContext from "../contexts/global";
 
 // photos
-import { defaultPhotos } from "../pages/photos";
+// import { defaultPhotos } from "../pages/photos";
+import { defaultPhotos } from "./Photos";
 
 const SwapItButton = () => {
   const { colorMode } = useColorMode();
