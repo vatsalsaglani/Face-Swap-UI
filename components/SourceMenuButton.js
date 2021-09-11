@@ -25,7 +25,7 @@ import GlobalContext from "../contexts/global";
 import InputFileButton from "../components/InputFileButton";
 
 const SourceMenuButton = () => {
-  const { setSourceImage, setOpenCaptureModal, setOpenSourceCaptureModal } =
+  const { sourceImage, setSourceImage, doingSwap, setOpenSourceCaptureModal } =
     useContext(GlobalContext);
   const { colorMode } = useColorMode();
 
@@ -67,6 +67,8 @@ const SourceMenuButton = () => {
     <>
       <Menu>
         <MenuButton
+          // {{doingSwap ? disabled : null}}
+          disabled={doingSwap ? true : false}
           as={Button}
           variant="solid"
           size="md"
@@ -82,7 +84,8 @@ const SourceMenuButton = () => {
             color: colorMode === "light" ? "gray.100" : "gray.900",
           }}
         >
-          UPLOAD
+          {/* UPLOAD */}
+          {sourceImage ? "CHANGE" : "UPLOAD"}
         </MenuButton>
         <MenuList>
           <InputFileButton
