@@ -6,9 +6,11 @@ import {
   Center,
   Grid,
   useColorMode,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
+import { FiSun } from "react-icons/fi";
 
 import Link from "next/link";
 
@@ -43,23 +45,35 @@ const FaceSwapHeader = () => {
               bgClip="text"
               bgGradient={fs_gradient[colorMode]}
             >
-              FaceSwap
+              FaceSwitch
             </Text>
           </a>
         </Link>
-        <Text fontSize="sm" fontStyle="italic" color="gray.500">
+        <ChakraLink
+          style={{ textDecoration: "none" }}
+          fontSize="sm"
+          fontStyle="italic"
+          color={colorMode === "light" ? "gray.300" : "gray.600"}
+          _hover={{
+            color: "red",
+            bgGradient: fs_gradient[colorMode],
+            bgClip: "text",
+          }}
+          isExternal={true}
+          href="https://twitter.com/saglanivatsal"
+        >
           By: @saglanivatsal
-        </Text>
+        </ChakraLink>
       </Box>
       <IconButton
         aria-label="icon"
-        icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+        icon={colorMode === "light" ? <MoonIcon /> : <FiSun />}
         size="md"
         isRound
         variant="outline"
         bgGradient={fs_gradient[colorMode]}
         mt="4px"
-        color={colorMode === "light" ? "gray.100" : "gray.900"}
+        color={colorMode === "light" ? "gray.100" : "gray.700"}
         onClick={toggleColorMode}
         _hover={{
           bgGradient:
