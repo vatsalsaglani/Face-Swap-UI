@@ -1,4 +1,5 @@
 import { useEffect, useContext, useState } from "react";
+import uuid from "uuid";
 import {
   useColorMode,
   Container,
@@ -7,9 +8,15 @@ import {
   IconButton,
   Box,
   Image,
+  Tooltip,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 
-import { AiOutlineRotateLeft, AiOutlineRotateRight } from "react-icons/ai";
+import {
+  AiOutlineRotateLeft,
+  AiOutlineRotateRight,
+  AiOutlineDownload,
+} from "react-icons/ai";
 
 // import Link from "next/link";
 import Head from "next/head";
@@ -66,10 +73,18 @@ export default function Result() {
     setRotation(nr);
   };
 
+  const downloadImage = () => {
+    let image = `data:image/png;base64,  ${swappedImage}`;
+    let img_ele = document.createElement("a");
+    img_ele.href = image;
+    img_ele.download = `${uuid.v4()}-swapped-image.png`;
+    img_ele.click();
+  };
+
   return (
     <Container minWidth="100%">
       <Head>
-        <title>FaceSwap Result 🚀</title>
+        <title>FaceSwitch Result</title>
       </Head>
       <FaceSwapHeader />
       <Container pt="15px" pb="15px" mt="10px" mb="10px" minWidth="85%">
@@ -127,67 +142,89 @@ export default function Result() {
               alignItems="center"
               justifyContent="space-between"
             >
-              <IconButton
-                isRound
-                variant="solid"
-                //   colorScheme="facebook"
-                bgGradient={fs_gradient[colorMode]}
-                color={colorMode === "light" ? "gray.100" : "gray.900"}
-                aria-label="Close"
-                //   fontSize="20px"
-                icon={<AiOutlineRotateLeft />}
-                onClick={rotateLeft}
-                _hover={{
-                  bgGradient:
-                    colorMode === "light"
-                      ? fs_gradient["dark"]
-                      : fs_gradient["light"],
-                  color: colorMode === "light" ? "gray.100" : "gray.900",
-                }}
-              />
-              <IconButton
-                isRound
-                variant="solid"
-                //   colorScheme="facebook"
-                bgGradient={fs_gradient[colorMode]}
-                color={colorMode === "light" ? "gray.100" : "gray.900"}
-                aria-label="Close"
-                //   fontSize="20px"
-                icon={<AiOutlineRotateRight />}
-                onClick={rotateRight}
-                _hover={{
-                  bgGradient:
-                    colorMode === "light"
-                      ? fs_gradient["dark"]
-                      : fs_gradient["light"],
-                  color: colorMode === "light" ? "gray.100" : "gray.900",
-                }}
-              />
+              <Tooltip label="Rotate Left">
+                <IconButton
+                  isRound
+                  variant="solid"
+                  //   colorScheme="facebook"
+                  bgGradient={fs_gradient[colorMode]}
+                  color={colorMode === "light" ? "gray.100" : "gray.900"}
+                  aria-label="Close"
+                  //   fontSize="20px"
+                  icon={<AiOutlineRotateLeft />}
+                  onClick={rotateLeft}
+                  _hover={{
+                    bgGradient:
+                      colorMode === "light"
+                        ? fs_gradient["dark"]
+                        : fs_gradient["light"],
+                    color: colorMode === "light" ? "gray.100" : "gray.900",
+                  }}
+                />
+              </Tooltip>
+              <Tooltip label="Download">
+                <IconButton
+                  isRound
+                  variant="solid"
+                  //   colorScheme="facebook"
+                  bgGradient={fs_gradient[colorMode]}
+                  color={colorMode === "light" ? "gray.100" : "gray.900"}
+                  aria-label="Close"
+                  //   fontSize="20px"
+                  icon={<AiOutlineDownload />}
+                  onClick={downloadImage}
+                  _hover={{
+                    bgGradient:
+                      colorMode === "light"
+                        ? fs_gradient["dark"]
+                        : fs_gradient["light"],
+                    color: colorMode === "light" ? "gray.100" : "gray.900",
+                  }}
+                />
+              </Tooltip>
+              <Tooltip label="Rotate Right">
+                <IconButton
+                  isRound
+                  variant="solid"
+                  //   colorScheme="facebook"
+                  bgGradient={fs_gradient[colorMode]}
+                  color={colorMode === "light" ? "gray.100" : "gray.900"}
+                  aria-label="Close"
+                  //   fontSize="20px"
+                  icon={<AiOutlineRotateRight />}
+                  onClick={rotateRight}
+                  _hover={{
+                    bgGradient:
+                      colorMode === "light"
+                        ? fs_gradient["dark"]
+                        : fs_gradient["light"],
+                    color: colorMode === "light" ? "gray.100" : "gray.900",
+                  }}
+                />
+              </Tooltip>
             </Box>
           </Container>
           <Container
             display="flex"
             justifyContent="center"
             flexDirection="column"
+            alignItems="center"
           >
-            <Button
+            <ChakraLink
               variant="solid"
-              size="md"
-              bgGradient={fs_gradient[colorMode]}
-              color={colorMode === "light" ? "gray.100" : "gray.900"}
-              fontWeight="bold"
-              fontSize="xl"
+              fontStyle="italic"
+              color={colorMode === "light" ? "gray.300" : "gray.500"}
+              fontSize="lg"
+              my="20px"
               onClick={onClickOnceMore}
+              style={{ textDecoration: "none" }}
               _hover={{
-                bgGradient:
-                  colorMode === "light"
-                    ? fs_gradient["dark"]
-                    : fs_gradient["light"],
-                color: colorMode === "light" ? "gray.100" : "gray.900",
+                color: "red",
               }}
+              
             >
-              ONCE MORE 🎈
-            </Button>
+              switch again
+            </ChakraLink>
           </Container>
         </Container>
       </Container>
