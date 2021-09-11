@@ -95,11 +95,11 @@ const SwapItButton = () => {
           <Box color="white" p={3} bg="orange.500">
             {/* Error communicating with the host */}
             {!sourceImage && !targetImage
-              ? "Cannot do FaceSwap without Images"
+              ? "Cannot do FaceSwitch without Images"
               : !sourceImage
               ? "Need a source image to swap the face on target image"
               : !targetImage
-              ? "Need to select a target image for FaceSwap"
+              ? "Need to select a target image for FaceSwitch"
               : null}
           </Box>
         ),
@@ -146,7 +146,7 @@ const SwapItButton = () => {
             color: colorMode === "light" ? "gray.100" : "gray.900",
           }}
         >
-          SWAP IT
+          SWITCH IT
         </Button>
       )}
     </>
