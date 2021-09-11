@@ -35,6 +35,50 @@ export default function Home() {
   return (
     <Container minWidth="100%">
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content={"Switch your face with someone's and have fun!"}
+        />
+        <meta property="og:title" content={"FaceSwitch"} key="ogtitle" />
+        <meta
+          property="og:description"
+          content={"Switch your face with someone's and have fun!"}
+          key="ogdesc"
+        />
+        {/* Twitter */}
+        <meta
+          name="twitter:card"
+          content="Using FaceSwitch you can swap your face with someone else's face or someone's face with yours and have fun"
+          key="twcard"
+        />
+        <meta
+          name="twitter:creator"
+          content={"@saglanivatsal"}
+          key="twhandle"
+        />
+
+        {/* Open Graph */}
+        <meta
+          property="og:url"
+          content={"https://faceswitch.vercel.app"}
+          key="ogurl"
+        />
+        <meta
+          property="og:image"
+          content={
+            "https://vs-bucket-allthings.s3.us-east-2.amazonaws.com/fs_dark.png"
+          }
+          key="ogimage"
+        />
+        <meta property="og:site_name" content={"FaceSwitch"} key="ogsitename" />
+        <meta property="og:title" content={"FaceSwitch - Home"} key="ogtitle" />
+        <meta
+          property="og:description"
+          content={"Switch your face with someone's and have fun!"}
+          key="ogdesc"
+        />
         <title>FaceSwitch</title>
       </Head>
       <FaceSwapHeader />
