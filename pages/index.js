@@ -48,7 +48,7 @@ export default function Home() {
           key="ogdesc"
         />
         {/* Twitter */}
-        <meta
+        {/* <meta
           name="twitter:card"
           content="Using FaceSwitch you can swap your face with someone else's face or someone's face with yours and have fun"
           key="twcard"
@@ -57,7 +57,9 @@ export default function Home() {
           name="twitter:creator"
           content={"@saglanivatsal"}
           key="twhandle"
-        />
+        /> */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:creator" content="@saglanivatsal" />
 
         {/* Open Graph */}
         <meta
