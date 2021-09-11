@@ -35,23 +35,10 @@ export default function Home() {
   return (
     <Container minWidth="100%">
       <Head>
-        <title>FaceSwap 🎆 🎇</title>
+        <title>FaceSwitch</title>
       </Head>
       <FaceSwapHeader />
       <Container minWidth="85%">
-        <Container>
-          <Text
-            fontSize="sm"
-            color={colorMode === "light" ? "gray.900" : "gray.100"}
-            textAlign="justify"
-          >
-            Swap someone’s face in a cool photo with your face or check how
-            would you look if you were someone else. You need to upload a source
-            image and you also need to upload a target image on which you want
-            the face in your source image. You can try using any of the default
-            target images also.
-          </Text>
-        </Container>
         <Container minWidth="100%">
           <SimpleGrid spacing={4} mt="15px" minChildWidth="35vh">
             <SourceCard />
