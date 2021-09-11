@@ -1,10 +1,8 @@
 import { useEffect, useContext, useState } from "react";
-import uuid from "uuid";
 import {
   useColorMode,
   Container,
   Text,
-  Button,
   IconButton,
   Box,
   Image,
@@ -77,7 +75,8 @@ export default function Result() {
     let image = `data:image/png;base64,  ${swappedImage}`;
     let img_ele = document.createElement("a");
     img_ele.href = image;
-    img_ele.download = `${uuid.v4()}-swapped-image.png`;
+    let rs = (Math.random() + 1).toString(36).substring(7);
+    img_ele.download = `result-switched-image-${rs}.png`;
     img_ele.click();
   };
 
@@ -221,7 +220,6 @@ export default function Result() {
               _hover={{
                 color: "red",
               }}
-              
             >
               switch again
             </ChakraLink>
